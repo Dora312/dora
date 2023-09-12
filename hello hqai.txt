@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+       
+        #i1 {
+            border: 2px solid rgb(155, 144, 144);
+            border-radius: 8px;
+            width: 640px;
+            height: 60px;
+            font-size: 40px;
+            margin-left: 400px;
+            margin-top: 50px;
+            text-align: right;
+            font-family: cursive;
+
+        }
+        .c1 {
+            width: 650px;
+            height: 300px;
+            margin-left: 400px;
+            margin-top: 25px;
+        }
+        .b {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        input[type="button"] {
+            padding: 15px;
+            width: 150px;
+            margin: 5px;
+            font-size: 20px;
+            height: 45px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        input[value*="CE"]
+        {
+            background-color: #04AA6D;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <input type="text" id="i1" value="0" placeholder="ANS" readonly>
+    </section><br>
+    <div class="c1">
+        <div class="b">
+            <input type="button" value="(" onclick="appendToInput('(')">
+            <input type="button" value=")" onclick="appendToInput(')')">
+            <input type="button" value="%" onclick="appendToInput('%')">
+            <input type="button" value="CE" onclick="clearInput()">
+            <input type="button" value="7" onclick="appendToInput('7')">
+            <input type="button" value="8" onclick="appendToInput('8')">
+            <input type="button" value="9" onclick="appendToInput('9')">
+            <input type="button" value="/" onclick="appendToInput('/')">
+            <input type="button" value="4" onclick="appendToInput('4')">
+            <input type="button" value="5" onclick="appendToInput('5')">
+            <input type="button" value="6" onclick="appendToInput('6')">
+            <input type="button" value="*" onclick="appendToInput('*')">
+            <input type="button" value="1" onclick="appendToInput('1')">
+            <input type="button" value="2" onclick="appendToInput('2')">
+            <input type="button" value="3" onclick="appendToInput('3')">
+            <input type="button" value="-" onclick="appendToInput('-')">
+            <input type="button" value="0" onclick="appendToInput('0')">
+            <input type="button" value="." onclick="appendToInput('.')">
+            <input type="button" value="=" onclick="calculate()">
+            <input type="button" value="+" onclick="appendToInput('+')">
+        </div>
+    </div>
+
+    <script>
+        function appendToInput(value){
+            document.getElementById('i1').value += value;
+        }
+
+        function clearInput() {
+            document.getElementById('i1').value = '';
+        }
+
+        function calculate() {
+            try {
+                const result = eval(document.getElementById('i1').value);
+                document.getElementById('i1').value = result;
+            } catch (error) {
+                document.getElementById('i1').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
